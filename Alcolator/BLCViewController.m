@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Gregory Helton. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "BLCViewController.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *beerPercentTextField;
