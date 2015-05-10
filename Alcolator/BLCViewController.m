@@ -9,10 +9,8 @@
 #import "BLCViewController.h"
 
 @interface BLCViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *beerPercentTextField;
-@property (weak, nonatomic) IBOutlet UISlider *beerCountSlider;
-@property (weak, nonatomic) IBOutlet UILabel *resultLabel;
-@property (weak, nonatomic) IBOutlet UILabel *beerCountLabel;
+
+//@property (weak, nonatomic) IBOutlet UILabel *beerCountLabel;
 @property (weak, nonatomic) UIButton *calculateButton;
 @property (weak, nonatomic) UITapGestureRecognizer *hideKeyboardTapGestureRecognizer;
 @end
@@ -100,8 +98,8 @@
 - (void)sliderValueDidChange:(UISlider *)sender {
     NSLog(@"sliderValueDidChange to %f", self.beerCountSlider.value);
     [self.beerPercentTextField resignFirstResponder];
-    int numberOfBeers = self.beerCountSlider.value;
-    self.beerCountLabel.text = [NSString stringWithFormat:@"%d", numberOfBeers];
+    //int numberOfBeers = self.beerCountSlider.value;
+    //self.beerCountLabel.text = [NSString stringWithFormat:@"%d", numberOfBeers];
 }
 
 - (void)buttonPressed:(UIButton *)sender {
