@@ -6,17 +6,22 @@
 //  Copyright (c) 2015 Gregory Helton. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "BLCAppDelegate.h"
 
-@interface AppDelegate ()
+@interface BLCAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation BLCAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] ;
+    // Override point for customization after application launch.
+    BLCViewController *viewController = [[BLCViewController alloc] init];
+    self.window.rootViewController = viewController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
