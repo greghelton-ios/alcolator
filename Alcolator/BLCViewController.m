@@ -17,6 +17,12 @@
 
 @implementation BLCViewController
 
+CGFloat viewWidth = 320;
+CGFloat padding = 20;
+CGFloat itemWidth = 100;
+CGFloat itemHeight = 44;
+CGFloat bottomPadding = 20;
+
 - (void)loadView {
     // Allocate and initialize the all-encompassing view
     self.view = [[UIView alloc] init];
@@ -47,6 +53,8 @@
 {
     // Calls the superclass's implementation
     [super viewDidLoad];
+    
+    itemWidth = viewWidth - padding - padding;
     
     // Set our primary view's background color to lightGrayColor
     self.view.backgroundColor = [UIColor lightGrayColor];
@@ -155,13 +163,24 @@
     [self.beerPercentTextField resignFirstResponder];
 }
 
+-(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    viewWidth // = 320;
+              //  = self.view.frame.size.width;
+                = size.width;
+    padding = 20;
+    //            = size.height / 16;
+    bottomPadding = 7 * padding;
+    itemWidth = viewWidth - padding - padding;
+    itemHeight = 44;
+}
+
 - (void) viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     
-    CGFloat viewWidth = 320;
-    CGFloat padding = 20;
-    CGFloat itemWidth = viewWidth - padding - padding;
-    CGFloat itemHeight = 44;
+    //CGFloat viewWidth = 320;
+    //CGFloat padding = 20;
+    //CGFloat itemWidth = viewWidth - padding - padding;
+    //CGFloat itemHeight = 44;
     
     self.beerPercentTextField.frame = CGRectMake(padding, padding, itemWidth, itemHeight);
     
@@ -172,7 +191,8 @@
     self.resultLabel.frame = CGRectMake(padding, bottomOfSlider + padding, itemWidth, itemHeight * 4);
     
     CGFloat bottomOfLabel = CGRectGetMaxY(self.resultLabel.frame);
-    self.calculateButton.frame = CGRectMake(padding, bottomOfLabel + padding, itemWidth, itemHeight);
+    // self.calculateButton.frame = CGRectMake(padding, bottomOfLabel + padding, itemWidth, itemHeight);
+    self.calculateButton.frame = CGRectMake(padding, bottomOfLabel + padding, itemWidth, itemHeight - bottomPadding);
 }
 
 
